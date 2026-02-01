@@ -5,40 +5,72 @@ index.html
 <meta charset="UTF-8">
 <title>For Sachitha ❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
 <style>
-body {
-  background: linear-gradient(135deg, #ff5f9e, #ff9966);
-  height: 100vh;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Arial, sans-serif;
-  overflow: hidden;
+*{
+  box-sizing: border-box;
 }
-.card {
-  background: white;
-  padding: 25px;
-  border-radius: 20px;
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background: linear-gradient(135deg,#ffafbd,#ffc3a0);
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
+}
+.card{
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(15px);
+  border-radius: 25px;
+  padding: 30px;
+  width: 320px;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  animation: fadeUp 1.2s ease;
 }
-h1 { color: #ff3366; }
-button {
-  padding: 12px 25px;
-  font-size: 18px;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  margin: 10px;
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(30px);}
+  to{opacity:1; transform:translateY(0);}
 }
-#yes {
-  background: #ff3366;
-  color: white;
+img{
+  width: 180px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(255,51,102,0.5);
+  margin-bottom: 15px;
 }
-#no {
-  background: #ccc;
-  position: absolute;
+h1{
+  font-family:'Playfair Display',serif;
+  color:#fff;
+  margin:10px 0;
+}
+p{
+  color:#fff;
+  font-size:16px;
+  margin-bottom:20px;
+}
+button{
+  padding:12px 26px;
+  font-size:16px;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  transition:0.3s;
+}
+#yes{
+  background:#ff3366;
+  color:#fff;
+}
+#yes:hover{
+  transform:scale(1.05);
+}
+#no{
+  background:#ffffffaa;
+  color:#333;
+  position:absolute;
 }
 </style>
 </head>
@@ -46,34 +78,37 @@ button {
 <body>
 
 <div class="card">
+  <img src="sachitha.jpg">
   <h1>Sachitha ❤️</h1>
-  <p>Will you be my Valentine? 💕</p>
-  <button id="yes" onclick="yesClick()">YES 😍</button>
+  <p>Will you be my Valentine?</p>
+  <button id="yes" onclick="yesClick()">YES 💖</button>
   <button id="no">NO 🙈</button>
 </div>
 
-<audio autoplay loop>
-  <source src="https://files.catbox.moe/5p5x0s.mp3" type="audio/mpeg">
+<audio id="song" loop>
+  <source src="song.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 const noBtn = document.getElementById("no");
-noBtn.addEventListener("mouseover", moveButton);
-noBtn.addEventListener("touchstart", moveButton);
+noBtn.addEventListener("mouseover", moveNo);
+noBtn.addEventListener("touchstart", moveNo);
 
-function moveButton() {
+function moveNo(){
   const x = Math.random() * (window.innerWidth - 100);
   const y = Math.random() * (window.innerHeight - 50);
   noBtn.style.left = x + "px";
   noBtn.style.top = y + "px";
 }
 
-function yesClick() {
+function yesClick(){
+  document.getElementById("song").play();
   document.body.innerHTML =
-    "<h1 style='color:white;font-size:40px;text-align:center;'>Yay! ❤️🥰<br>Enna Solla Pogirai 🎶</h1>";
+  "<h1 style='color:white;font-family:Playfair Display;font-size:42px;text-align:center;animation:fadeUp 1s;'>Yay 💕<br>You made my day 🌸</h1>";
 }
 </script>
 
 </body>
 </html>
+
 
